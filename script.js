@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001/api/produtos';
+const API_URL = `${window.location.origin}/api/produtos`;
 const STORAGE_KEY = 'controle_estoque_backup';
 
 let produtos = [];

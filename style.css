@@ -1,26 +1,21 @@
 :root {
-    --bg-canvas: #f7f7f6;
-    --bg-surface: #ffffff;
-    --bg-subtle: #f1f1ef;
-    --border-light: #e8e8e6;
-    --border-focus: #1c1c1e;
+    --bg-canvas: #0c0d0e;
+    --bg-sidebar: #111314;
+    --bg-card: #16181a;
+    --bg-card-elevated: #1c1f22;
+    --border-subtle: #25292d;
+    --border-focus: #34d399;
 
-    --text-primary: #18181b;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
 
-    /* Paleta pastel da referência */
-    --pastel-yellow: #f6d76b;
-    --pastel-blue: #cddce8;
-    --pastel-purple: #e2d7eb;
-
-    /* Ações e status */
-    --btn-dark: #1c1c1e;
-    --btn-dark-hover: #323236;
-    --status-green: #16a34a;
-    --status-green-bg: #dcfce7;
-    --status-red: #dc2626;
-    --status-red-bg: #fee2e2;
+    --accent-green: #22c55e;
+    --accent-green-soft: rgba(34, 197, 94, 0.14);
+    --accent-orange: #f97316;
+    --accent-orange-soft: rgba(249, 115, 22, 0.14);
+    --accent-red: #ef4444;
+    --accent-red-soft: rgba(239, 68, 68, 0.14);
 }
 
 * {
@@ -34,64 +29,62 @@ body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
     min-height: 100vh;
-    padding: 36px 24px;
+    padding: 28px 20px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Centralização estilo painel */
+/* Container central estilo painel */
 body > * {
-    max-width: 1080px;
+    max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Título principal limpo */
 h1 {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
-/* Detalhe bicolor inspirado no ícone do topo */
 h1::before {
     content: "";
     display: inline-block;
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--pastel-yellow) 50%, var(--btn-dark) 50%);
+    background-color: var(--accent-green);
+    box-shadow: 0 0 12px var(--accent-green);
 }
 
-/* Card de cadastro superior */
+/* Barra de adicionar produto (card superior) */
 body > div:first-of-type {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-light);
-    border-radius: 22px;
-    padding: 18px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 16px;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.025);
+    margin-bottom: 20px;
 }
 
 input[type="text"],
 input[type="number"] {
-    background-color: var(--bg-subtle);
-    border: 1px solid transparent;
+    background-color: var(--bg-card-elevated);
+    border: 1px solid var(--border-subtle);
     color: var(--text-primary);
-    border-radius: 14px;
-    padding: 11px 14px;
+    border-radius: 10px;
+    padding: 10px 12px;
     font-size: 0.92rem;
     outline: none;
-    transition: all 0.18s ease;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
 
 body > div:first-of-type input[type="text"],
@@ -104,70 +97,73 @@ input::placeholder {
 }
 
 input:hover {
-    background-color: #ebebea;
+    border-color: #34393f;
 }
 
 input:focus {
-    background-color: var(--bg-surface);
     border-color: var(--border-focus);
-    box-shadow: 0 0 0 3px rgba(28, 28, 30, 0.08);
+    background-color: #1f2327;
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
 }
 
-/* Botão principal Adicionar (estilo pílula escura da referência) */
+/* Botões */
 button {
     border: none;
-    border-radius: 999px;
-    padding: 11px 22px;
+    border-radius: 10px;
+    padding: 10px 16px;
     font-size: 0.88rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.12s ease, background-color 0.18s ease;
+    transition: transform 0.12s ease, background-color 0.18s ease, opacity 0.18s ease;
 }
 
 button:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
 }
 
+/* Botão principal Adicionar */
 body > div:first-of-type button {
-    background-color: var(--btn-dark);
-    color: #ffffff;
+    background-color: var(--accent-green);
+    color: #07130c;
+    padding: 10px 20px;
 }
 
 body > div:first-of-type button:hover {
-    background-color: var(--btn-dark-hover);
+    background-color: #34d399;
 }
 
-/* Planilha / Tabela em card branco arredondado */
+/* Tabela / Planilha no estilo card escuro */
 table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-light);
-    border-radius: 22px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.025);
+    margin-bottom: 20px;
 }
 
 thead {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-card-elevated);
 }
 
 th {
     text-align: left;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     color: var(--text-secondary);
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border-light);
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 td {
-    padding: 13px 20px;
+    padding: 12px 16px;
     font-size: 0.92rem;
     color: var(--text-primary);
-    border-bottom: 1px solid #f2f2f0;
+    border-bottom: 1px solid rgba(37, 41, 45, 0.65);
     vertical-align: middle;
 }
 
@@ -175,82 +171,81 @@ tbody tr {
     transition: background-color 0.15s ease;
 }
 
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
 tbody tr:hover {
-    background-color: #fafaf9;
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Inputs editáveis estilo planilha */
+/* Inputs editáveis dentro da planilha (Qtd e Valor R$) */
 td input[type="number"] {
     width: 115px;
     padding: 7px 10px;
-    font-size: 0.9rem;
-    border-radius: 10px;
+    font-size: 0.88rem;
     background-color: transparent;
-    border: 1px solid transparent;
+    border-color: transparent;
     font-variant-numeric: tabular-nums;
 }
 
 td input[type="number"]:hover {
-    background-color: var(--bg-subtle);
+    background-color: var(--bg-card-elevated);
+    border-color: var(--border-subtle);
 }
 
 td input[type="number"]:focus {
-    background-color: var(--bg-surface);
+    background-color: var(--bg-card-elevated);
     border-color: var(--border-focus);
 }
 
 /* Subtotal em destaque */
 td strong {
-    display: inline-block;
-    background-color: var(--pastel-blue);
-    color: var(--text-primary);
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 0.86rem;
+    color: var(--accent-green);
     font-weight: 600;
     font-variant-numeric: tabular-nums;
 }
 
-/* Botão Remover estilo tag suave */
+/* Botão Remover na linha */
 td button {
-    background-color: var(--status-red-bg);
-    color: var(--status-red);
-    padding: 6px 14px;
-    font-size: 0.8rem;
+    background-color: var(--accent-red-soft);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    padding: 7px 12px;
+    font-size: 0.82rem;
 }
 
 td button:hover {
-    background-color: var(--status-red);
+    background-color: var(--accent-red);
     color: #ffffff;
 }
 
-/* Card de Valor Total em Estoque (destaque pastel amarelo da referência) */
+/* Card de Valor Total em Estoque na parte inferior */
 body > p:last-of-type {
-    background-color: var(--pastel-yellow);
-    border-radius: 22px;
-    padding: 20px 24px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--accent-green);
+    border-radius: 14px;
+    padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    box-shadow: 0 4px 18px rgba(246, 215, 107, 0.25);
+    color: var(--text-secondary);
 }
 
 #totalGeralEstoque {
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
     font-variant-numeric: tabular-nums;
 }
 
-/* Responsividade */
+/* Responsividade para telas menores */
 @media (max-width: 720px) {
     table {
         display: block;
