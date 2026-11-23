@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Controle de Estoque</h1>
+
+    <div>
+        <input id="nomeInput" type="text" placeholder="Produto">
+        <input id="categoriaInput" type="text" placeholder="Categoria">
+        <input id="qtdInput" type="number" min="0" placeholder="Quantidade">
+        <input id="valorInput" type="number" min="0" step="0.01" placeholder="Valor (R$)">
+        <button onclick="adicionarProduto()">Adicionar</button>
+    </div>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Qtd</th>
+                <th>Valor Unit. (R$)</th>
+                <th>Subtotal (R$)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaEstoqueBody"></tbody>
+    </table>
+
+    <p>Valor Total em Estoque: <strong id="totalGeralEstoque">R$ 0,00</strong></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
